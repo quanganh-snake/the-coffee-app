@@ -36,12 +36,18 @@ cd ./android
 
 ## 1.2. Các thư viện sử dụng chính
 
-- **@react-navigation/native** : dùng điều hướng qua các màn [Documents](https://reactnavigation.org/docs/getting-started)
+- **@react-navigation/native** && **@react-navigation/native-stack** : dùng điều hướng qua các màn [Documents](https://reactnavigation.org/docs/getting-started)
 
-Các package **react-native-screens**, **react-native-safe-area-context** : là các gói phụ liên quan đến màn hình
+Các package:
+
+- **@react-navigation/native** : dùng quản lý cấu trúc điều hướng giữa các màn với **NavigationContainer**
+
+- **@react-navigation/native-stack** : chứa các `Screen Component`, dùng để xác định màn hình cho việc điều hướng tới màn hình đấy.
+
+- **react-native-screens**, **react-native-safe-area-context** : là các gói phụ liên quan đến màn hình
 
 ```bash
-npm install @react-navigation/native react-native-screens react-native-safe-area-context
+npm install @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context
 
 ```
 
@@ -73,10 +79,10 @@ npm i lottie-react-native
 
 ```
 
-- **react-native-vector-icons** : icons [Documents](https://github.com/oblador/react-native-vector-icons)
+- **react-native-vector-icons** && **@types/react-native-vector-icons** : icons [Documents](https://github.com/oblador/react-native-vector-icons)
 
 ```bash
-npm install --save react-native-vector-icons
+npm install --save react-native-vector-icons @types/react-native-vector-icons
 
 ```
 
