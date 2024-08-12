@@ -22,7 +22,7 @@ const App = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Tab" component={TabBottomNavigator} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
         <Stack.Screen
           name="Details"
           component={DetailsScreen}

@@ -1,4 +1,3 @@
-import { ParamListBase, RouteProp } from "@react-navigation/native";
 import HomeScreen from "../screens/Home";
 import CartScreen from "../screens/Cart";
 import DetailsScreen from "../screens/Details";
