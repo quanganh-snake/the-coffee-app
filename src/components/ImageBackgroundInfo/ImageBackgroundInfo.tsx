@@ -1,7 +1,8 @@
 import {ImageBackground, ImageProps, Text, TouchableOpacity, View} from 'react-native'
 import {styles} from './style'
 import GradientBGIcon from '../GradientBGIcon'
-import {COLORS, FONTSIZE} from '../../theme/theme'
+import {COLORS, FONTSIZE, SPACING} from '../../theme/theme'
+import IconMoonCustom from '../CustomIcon'
 
 interface Props {
   enabledBackHandler: boolean
@@ -72,6 +73,61 @@ const ImageBackgroundInfo = (props: Props) => {
             </TouchableOpacity>
           </View>
         )}
+
+        <View style={styles.imageInfoOuterContainer}>
+          <View style={styles.imageInfoInnerContainer}>
+            <View style={styles.infoContainerRow}>
+              <View style={styles.infoTitleContainer}>
+                <Text style={styles.infoTitleText}>{name}</Text>
+                <Text style={styles.infoSubtitleText}>{special_ingredient}</Text>
+              </View>
+              {/* END: titleText */}
+              <View style={styles.itemPropertiesContainer}>
+                <View style={styles.propertiesFirst}>
+                  <IconMoonCustom
+                    name={type === 'Bean' ? 'bean' : 'beans'}
+                    size={type === 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24}
+                    color={COLORS.primaryOrangeHex}
+                  />
+                  <Text
+                    style={[
+                      styles.propertyTextFirst,
+                      {marginTop: type === 'Bean' ? SPACING.space_4 + SPACING.space_2 : 0},
+                    ]}>
+                    {type}
+                  </Text>
+                </View>
+                {/* END: propertiesFirst */}
+                <View style={styles.propertiesFirst}>
+                  <IconMoonCustom
+                    name={type === 'Bean' ? 'location' : 'drop'}
+                    size={FONTSIZE.size_18}
+                    color={COLORS.primaryOrangeHex}
+                  />
+                  <Text style={[styles.propertyTextFirst]}>{ingredients}</Text>
+                </View>
+              </View>
+            </View>
+            {/* END: infoContainerRow */}
+            <View style={styles.infoContainerRow}>
+              <View style={styles.ratingConatainer}>
+                <IconMoonCustom
+                  name="star"
+                  size={FONTSIZE.size_20}
+                  color={COLORS.primaryOrangeHex}
+                />
+                <Text style={styles.ratingText}>{average_rating}</Text>
+                <Text style={styles.ratingCountText}>({ratings_count})</Text>
+              </View>
+              {/* END: ratingConatainer */}
+              <View style={styles.roastedContainer}>
+                <Text style={styles.roastedText}>{roasted}</Text>
+              </View>
+              {/* END: roastedContainer */}
+            </View>
+            {/* END: infoContainerRow */}
+          </View>
+        </View>
       </ImageBackground>
     </View>
   )
