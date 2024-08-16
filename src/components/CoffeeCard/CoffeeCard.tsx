@@ -11,7 +11,7 @@ interface Props {
   id: string
   index: number
   type: string
-  rosted: string
+  roasted: string
   imagelink_square: ImageProps
   name: string
   special_ingredient: string
@@ -29,7 +29,7 @@ const CoffeeCard = (props: Props) => {
     index,
     name,
     price,
-    rosted,
+    roasted,
     special_ingredient,
     type,
   } = props
@@ -65,7 +65,19 @@ const CoffeeCard = (props: Props) => {
         <Text style={styles.cardPriceCurrency}>
           $ <Text style={styles.cardPrice}>{price.price}</Text>
         </Text>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            buttonPressHandler &&
+              buttonPressHandler({
+                id,
+                index,
+                name,
+                roasted: roasted,
+                imagelink_square: imagelink_square,
+                type: type,
+                prices: [{...price, quantity: 1}],
+              })
+          }}>
           <BGRIcon
             name="add"
             color={COLORS.primaryWhiteHex}

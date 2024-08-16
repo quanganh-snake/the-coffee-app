@@ -10,4 +10,7 @@ export type InitialStateZustand = {
   calculateCartPrice: () => void,
   addToFavoriteList: (type: string, id: string) => void,
   deleteFavoriteList: (type: string, id: string) => void,
+  incrementCartItemQuantity: (id: string, size: string) => void
+  decrementCartItemQuantity: (id: string, size: string) => void
+  addToOrderHistoryListFromCart: () => void
 }

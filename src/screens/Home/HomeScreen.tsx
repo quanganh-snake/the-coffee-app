@@ -5,6 +5,7 @@ import {
   StatusBar,
   Text,
   TextInput,
+  ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native'
@@ -57,6 +58,10 @@ const HomeScreen = ({navigation}: any) => {
   const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeeList),
   )
+  const addToCart = useStore((state: any) => (state as InitialStateZustand).addToCart)
+  const calculateCartPrice = useStore(
+    (state: any) => (state as InitialStateZustand).calculateCartPrice,
+  )
 
   const handleSearchCoffee = (keywordsSearch: string) => {
     if (keywordsSearch !== '') {
@@ -81,6 +86,24 @@ const HomeScreen = ({navigation}: any) => {
     })
     setCategoryIndex({index: 0, category: categoris[0]})
     setSortedCoffee([...CoffeeList])
+  }
+
+  const handleAddToCart = ({id, index, name, roasted, imagelink_square, type, prices}: any) => {
+    addToCart({
+      id,
+      index,
+      name,
+      roasted,
+      imagelink_square,
+      type,
+      prices,
+    })
+    calculateCartPrice()
+    ToastAndroid.showWithGravity(
+      `${name} is added to cart!`,
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER,
+    )
   }
 
   return (
@@ -192,13 +215,13 @@ const HomeScreen = ({navigation}: any) => {
                 }}>
                 <CoffeeCard
                   average_rating={item.average_rating}
-                  buttonPressHandler={item.buttonPressHandler}
+                  buttonPressHandler={handleAddToCart}
                   id={item.id}
                   imagelink_square={item.imagelink_square}
                   index={item.index}
                   name={item.name}
                   price={item.prices[2]}
-                  rosted={item.rosted}
+                  roasted={item.roasted}
                   special_ingredient={item.special_ingredient}
                   type={item.type}
                 />
@@ -229,13 +252,13 @@ const HomeScreen = ({navigation}: any) => {
                 }}>
                 <CoffeeCard
                   average_rating={item.average_rating}
-                  buttonPressHandler={() => {}}
+                  buttonPressHandler={handleAddToCart}
                   id={item.id}
                   imagelink_square={item.imagelink_square}
                   index={item.index}
                   name={item.name}
                   price={item.prices[2]}
-                  rosted={item.rosted}
+                  roasted={item.roasted}
                   special_ingredient={item.special_ingredient}
                   type={item.type}
                 />
