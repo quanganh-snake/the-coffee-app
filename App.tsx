@@ -4,12 +4,12 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 // Screens
-import HomeScreen from './src/screens/Home'
 import DetailsScreen from './src/screens/Details'
 import PaymentScreen from './src/screens/Payment'
 
 // Tab bottom navigation
 import TabBottomNavigator from './src/navigators/TabBottomNavigator'
+import OrderHistoryScreen from './src/screens/OrderHistory'
 
 // Config Navigator && Stack Screen
 const Stack = createNativeStackNavigator()
@@ -22,7 +22,6 @@ const App = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Tab" component={TabBottomNavigator} />
-        {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
         <Stack.Screen
           name="Details"
           component={DetailsScreen}
@@ -31,6 +30,7 @@ const App = () => {
           }}
         />
         <Stack.Screen name="Payment" component={PaymentScreen} />
+        <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

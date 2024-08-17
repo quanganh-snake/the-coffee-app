@@ -26,7 +26,9 @@ const CartScreen = ({navigation}: any) => {
   const tabBarHeight = useBottomTabBarHeight()
 
   const handlePaymentOrder = () => {
-    navigation.push('Payment')
+    navigation.navigate('Payment', {
+      amount: CartPrice,
+    })
   }
 
   const incrementCartItemQuantityHandler = (id: string, size: string) => {
