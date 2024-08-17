@@ -54,7 +54,7 @@ const ImageBackgroundInfo = (props: Props) => {
               }}>
               <GradientBGIcon
                 name="like"
-                color={favourite ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex}
+                color={favourite === true ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex}
                 size={FONTSIZE.size_16}
               />
             </TouchableOpacity>
